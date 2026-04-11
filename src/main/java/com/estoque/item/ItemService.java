@@ -2,9 +2,11 @@ package com.estoque.item;
 
 import com.estoque.movimentacoes.MovimentacaoModel;
 import com.estoque.movimentacoes.MovimentacoesRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.beans.Transient;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,9 +44,17 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public ItemDto alterar(ItemUptadeDto item){
+    @Transactional
+    public void deletar(Long id){
+        ItemModel item = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("item não encontrado"));
 
-        ItemModel itemAlterado = itemRepository.findById(item.getId()).orElseThrow(() -> new RuntimeException("item não encontrado"));
+        movimentacoesRepository.deleteByItem(item);
+        itemRepository.delete(item);
+    }
+
+    public ItemDto alterar(Long id, ItemUptadeDto item){
+
+        ItemModel itemAlterado = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("item não encontrado"));
         int quantidadeAntiga = itemAlterado.getQuantidade();
         int quantidadeNova = item.getQuantidade() != null ? item.getQuantidade(): quantidadeAntiga;
         int diferenca = quantidadeNova - quantidadeAntiga;

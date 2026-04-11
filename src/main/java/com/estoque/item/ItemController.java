@@ -1,5 +1,8 @@
 package com.estoque.item;
 
+import com.estoque.movimentacoes.MovimentacaoModel;
+import com.estoque.movimentacoes.MovimentacoesRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,9 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
+    @Autowired
+    MovimentacoesRepository movimentacoesRepository;
+
     @PostMapping("/cadastro")
     public ItemDto cadastro(@RequestBody ItemRequestDto cadastro){
         
@@ -22,9 +28,7 @@ public class ItemController {
 
     @DeleteMapping("/deletar/{id}")
     public String deletar(@PathVariable Long id){
-        ItemModel item = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("ID não encontrado"));
-
-        itemRepository.delete(item);
+        itemService.deletar(id);
 
         return "Item excluido com sucesso";
     }
@@ -35,9 +39,10 @@ public class ItemController {
         return itemService.listar();
     }
 
-    @PutMapping("/alterar")
-    public ItemDto alterar(@RequestBody ItemUptadeDto item){
-        return itemService.alterar(item);
+    @PutMapping("/{id}")
+    public ItemDto alterar(@PathVariable Long id,
+                           @RequestBody @Valid ItemUptadeDto item){
+        return itemService.alterar(id, item);
     }
 
 

@@ -12,5 +12,11 @@ public interface MovimentacoesRepository extends JpaRepository<MovimentacaoModel
     List<MovimentacaoModel> findAll();
 
     @EntityGraph(attributePaths = "item")
+    List<MovimentacaoModel> findAllByItemId(Long itemId);
+
     List<MovimentacaoModel> findByItemId(Long itemId);
+
+    void deleteByItem(ItemModel itemModel);
+
+
 }
