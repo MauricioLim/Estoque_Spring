@@ -1,12 +1,11 @@
-package com.estoque.movimentacoes;
+package com.estoque.entity;
 
-import com.estoque.item.ItemModel;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "movimentacoes")
+@Table
 public class MovimentacaoModel {
 
     @Id

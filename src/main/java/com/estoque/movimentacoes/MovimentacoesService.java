@@ -1,7 +1,9 @@
 package com.estoque.movimentacoes;
 
-import com.estoque.item.ItemModel;
-import com.estoque.item.ItemRepository;
+import com.estoque.entity.ItemModel;
+import com.estoque.entity.MovimentacaoModel;
+import com.estoque.repository.ItemRepository;
+import com.estoque.repository.MovimentacoesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

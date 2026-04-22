@@ -1,6 +1,7 @@
-package com.estoque.movimentacoes;
+package com.estoque.repository;
 
-import com.estoque.item.ItemModel;
+import com.estoque.entity.ItemModel;
+import com.estoque.entity.MovimentacaoModel;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 

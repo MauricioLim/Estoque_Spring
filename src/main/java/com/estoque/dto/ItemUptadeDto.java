@@ -1,31 +1,26 @@
-package com.estoque.item;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+package com.estoque.dto;
 
-public class ItemRequestDto {
-    private Long id;
-    @NotBlank
+import jakarta.validation.constraints.Min;
+
+
+public class ItemUptadeDto {
+
+
     private String nome;
     @Min(0)
     private Integer quantidade;
     @Min(0)
     private Double valor;
 
-    public ItemRequestDto(Long id, String nome, Integer quantidade, Double valor) {
-        setId(id);
+    public ItemUptadeDto( String nome, Integer quantidade, Double valor) {
         setNome(nome);
         setQuantidade(quantidade);
         setValor(valor);
     }
 
-    public Long getId() {
-        return id;
+    public ItemUptadeDto() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -37,11 +32,11 @@ public class ItemRequestDto {
     }
 
     public Integer getQuantidade() {
+
         return quantidade;
     }
 
     public void setQuantidade(Integer quantidade) {
-
         this.quantidade = quantidade;
     }
 
@@ -50,7 +45,6 @@ public class ItemRequestDto {
     }
 
     public void setValor(Double valor) {
-
         this.valor = valor;
     }
 }

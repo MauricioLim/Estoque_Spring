@@ -1,0 +1,22 @@
+### GET request to example server
+GET http://localhost:8080/itens/listagem
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInN1YiI6Im1hdXJpY2lvQGdtYWlsLmNvbSIsImV4cCI6MTc3NjU3NDcxMCwiaWF0IjoxNzc2NTY2MDcwfQ.RlLaiGVvobz1RX524LYMleunbcpbdpCFxFIoTlLs1D0
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "name": "Mauricio",
+  "email": "mauricio@gmail.com",
+  "password": "bombom"
+}
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+"email": "mauricio@gmail.com",
+"password": "bombom"
+}

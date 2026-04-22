@@ -1,9 +1,9 @@
-package com.estoque.item;
+package com.estoque.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "item")
+@Table
 public class ItemModel {
 
     @Id

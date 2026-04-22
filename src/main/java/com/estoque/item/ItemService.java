@@ -1,14 +1,17 @@
 package com.estoque.item;
 
-import com.estoque.movimentacoes.MovimentacaoModel;
-import com.estoque.movimentacoes.MovimentacoesRepository;
+import com.estoque.dto.response.ItemDto;
+import com.estoque.dto.request.ItemRequestDto;
+import com.estoque.dto.ItemUptadeDto;
+import com.estoque.entity.ItemModel;
+import com.estoque.entity.MovimentacaoModel;
+import com.estoque.repository.ItemRepository;
+import com.estoque.repository.MovimentacoesRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.beans.Transient;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service

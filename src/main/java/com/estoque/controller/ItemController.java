@@ -1,7 +1,12 @@
-package com.estoque.item;
+package com.estoque.controller;
 
-import com.estoque.movimentacoes.MovimentacaoModel;
-import com.estoque.movimentacoes.MovimentacoesRepository;
+import com.estoque.dto.response.ItemDto;
+import com.estoque.dto.request.ItemRequestDto;
+import com.estoque.dto.ItemUptadeDto;
+import com.estoque.entity.ItemModel;
+import com.estoque.item.ItemService;
+import com.estoque.repository.ItemRepository;
+import com.estoque.repository.MovimentacoesRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
