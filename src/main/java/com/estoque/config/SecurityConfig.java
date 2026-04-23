@@ -16,6 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -30,7 +32,7 @@ public class SecurityConfig {
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         var config = new org.springframework.web.cors.CorsConfiguration();
 
-        config.setAllowedOrigins(java.util.List.of("http://localhost:5174", "https://*.vercel.app"));
+        config.setAllowedOriginPatterns(List.of("http://localhost:5174", "https://*.vercel.app"));
         config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(java.util.List.of("*"));
         config.setAllowCredentials(true);
