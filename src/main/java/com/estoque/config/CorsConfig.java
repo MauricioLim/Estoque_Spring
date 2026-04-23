@@ -14,7 +14,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
 
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5174", "https://estoque-front-yvqp-109s7qzmc-mauricio-limas-projects-25c6d1a2.vercel.app")
+                        .allowedOrigins("http://localhost:5174", "https://*.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
