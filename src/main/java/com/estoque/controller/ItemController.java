@@ -44,9 +44,9 @@ public class ItemController {
         return itemService.listar();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}", consumes = "multipart/form-data")
     public ItemDto alterar(@PathVariable Long id,
-                           @RequestBody @Valid ItemUptadeDto item){
+                           @ModelAttribute  @Valid ItemUptadeDto item){
         return itemService.alterar(id, item);
     }
 
