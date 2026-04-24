@@ -1,26 +1,37 @@
 package com.estoque.entity;
 
+import com.estoque.TipoMovimentacao;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table(name = "movimentacoes")
 public class MovimentacaoModel {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private int quantidade;
 
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoMovimentacao tipo;
 
     @ManyToOne
     @JoinColumn(name = "item_id")
     private ItemModel item;
 
     private LocalDate data;
+
+    public TipoMovimentacao getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoMovimentacao tipo) {
+        this.tipo = tipo;
+    }
 
     public LocalDate getData() {
         return data;
@@ -46,13 +57,6 @@ public class MovimentacaoModel {
         this.quantidade = quantidade;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public ItemModel getItem() {
         return item;

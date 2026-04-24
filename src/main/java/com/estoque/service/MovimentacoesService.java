@@ -1,5 +1,6 @@
-package com.estoque.movimentacoes;
+package com.estoque.service;
 
+import com.estoque.TipoMovimentacao;
 import com.estoque.entity.ItemModel;
 import com.estoque.entity.MovimentacaoModel;
 import com.estoque.repository.ItemRepository;
@@ -26,7 +27,7 @@ public class MovimentacoesService {
         ItemModel item = itemRepository.findById(itemId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Item não encontrado"));
 
-        if (mov.getTipo() == null || mov.getTipo().isBlank()) {
+        if (mov.getTipo() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tipo de movimentação obrigatório");
         }
 
@@ -34,12 +35,12 @@ public class MovimentacoesService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Quantidade deve ser maior que zero");
         }
 
-        mov.setTipo(mov.getTipo().toUpperCase());
+        mov.setTipo(mov.getTipo());
         if (mov.getData() == null) {
             mov.setData(LocalDate.now());
         }
 
-        if (mov.getTipo().equalsIgnoreCase("SAIDA")) {
+        if (mov.getTipo() == TipoMovimentacao.SAIDA) {
             if (item.getQuantidade() < mov.getQuantidade()) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Estoque insuficiente");
             }

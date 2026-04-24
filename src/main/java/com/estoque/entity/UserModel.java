@@ -12,14 +12,16 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table
+@Table(name = "users")
 public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String name;
+
     private String email;
+
     private String password;
 
     @Override

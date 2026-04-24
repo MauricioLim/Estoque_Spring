@@ -1,6 +1,7 @@
 package com.estoque.dto.request;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 public class ItemRequestDto {
     private Long id;
@@ -11,11 +12,24 @@ public class ItemRequestDto {
     @Min(0)
     private Double valor;
 
-    public ItemRequestDto(Long id, String nome, Integer quantidade, Double valor) {
+    private MultipartFile imagem;
+
+
+
+    public ItemRequestDto(Long id, String nome, Integer quantidade, Double valor, MultipartFile imagem) {
         setId(id);
         setNome(nome);
         setQuantidade(quantidade);
         setValor(valor);
+        setImagem(imagem);
+    }
+
+    public MultipartFile getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(MultipartFile imagem) {
+        this.imagem = imagem;
     }
 
     public Long getId() {

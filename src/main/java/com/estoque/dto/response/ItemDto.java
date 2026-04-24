@@ -12,12 +12,23 @@ public class ItemDto {
     @Min(0)
     private Double valor;
 
+    private String imagem;
 
-    public ItemDto(Long id, String nome, int quantidade, double valor) {
+
+    public ItemDto(Long id, String nome, int quantidade, double valor, String imagem) {
         setId(id);
         setNome(nome);
         setQuantidade(quantidade);
         setValor(valor);
+        setImagem(imagem);
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     public Long getId() {

@@ -3,7 +3,7 @@ package com.estoque.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "items")
 public class ItemModel {
 
     @Id
@@ -13,6 +13,14 @@ public class ItemModel {
     private String nome;
     private int quantidade;
     private double valor;
+    private String imagem;
+
+    public String getImagem() {
+        return imagem;
+    }
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
     public Long getId() {
         return id;

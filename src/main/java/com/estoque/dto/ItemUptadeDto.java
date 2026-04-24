@@ -1,6 +1,7 @@
 package com.estoque.dto;
 
 import jakarta.validation.constraints.Min;
+import org.springframework.web.multipart.MultipartFile;
 
 
 public class ItemUptadeDto {
@@ -12,15 +13,25 @@ public class ItemUptadeDto {
     @Min(0)
     private Double valor;
 
-    public ItemUptadeDto( String nome, Integer quantidade, Double valor) {
+    private MultipartFile imagem;
+
+    public ItemUptadeDto( String nome, Integer quantidade, Double valor, MultipartFile imagem) {
         setNome(nome);
         setQuantidade(quantidade);
         setValor(valor);
+        setImagem(imagem);
     }
 
     public ItemUptadeDto() {
     }
 
+    public MultipartFile getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(MultipartFile imagem) {
+        this.imagem = imagem;
+    }
 
     public String getNome() {
         return nome;

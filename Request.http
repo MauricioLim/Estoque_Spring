@@ -1,9 +1,9 @@
 ### GET request to example server
-GET https://estoquespring-production-f826.up.railway.app//itens/listagem
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInN1YiI6Im1hdXJpY2lvQGdtYWlsLmNvbSIsImV4cCI6MTc3NjkxMjcxNCwiaWF0IjoxNzc2OTA0MDc0fQ.ZH9vAeQPeQvDvQBl32_cs8GuZrkSGq07XlcrOJI2xUk
+GET localhost:8080/itens/listagem
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInN1YiI6Im1hdXJpY2lvQGdtYWlsLmNvbSIsImV4cCI6MTc3NzA3ODA4MSwiaWF0IjoxNzc3MDY5NDQxfQ.EIOyRngJMRjzqMc4548mAokgOIVlRwIrDzl-am2ocko
 ###
 
-POST https://estoquespring-production-f826.up.railway.app/auth/register
+POST localhost:8080/auth/register
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 ###
 
-POST https://estoquespring-production-f826.up.railway.app/auth/login
+POST localhost:8080/auth/login
 Content-Type: application/json
 
 {

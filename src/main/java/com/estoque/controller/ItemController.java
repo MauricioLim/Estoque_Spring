@@ -4,7 +4,7 @@ import com.estoque.dto.response.ItemDto;
 import com.estoque.dto.request.ItemRequestDto;
 import com.estoque.dto.ItemUptadeDto;
 import com.estoque.entity.ItemModel;
-import com.estoque.item.ItemService;
+import com.estoque.service.ItemService;
 import com.estoque.repository.ItemRepository;
 import com.estoque.repository.MovimentacoesRepository;
 import jakarta.validation.Valid;
@@ -25,8 +25,8 @@ public class ItemController {
     @Autowired
     MovimentacoesRepository movimentacoesRepository;
 
-    @PostMapping("/cadastro")
-    public ItemDto cadastro(@Valid @RequestBody ItemRequestDto cadastro){
+    @PostMapping(value = "/cadastro", consumes = "multipart/form-data")
+    public ItemDto cadastro( @ModelAttribute @Valid ItemRequestDto cadastro){
         
         return itemService.cadastrarItem(cadastro);
     }

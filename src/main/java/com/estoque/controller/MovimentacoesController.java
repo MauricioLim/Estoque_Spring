@@ -1,7 +1,7 @@
 package com.estoque.controller;
 
 import com.estoque.entity.MovimentacaoModel;
-import com.estoque.movimentacoes.MovimentacoesService;
+import com.estoque.service.MovimentacoesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
