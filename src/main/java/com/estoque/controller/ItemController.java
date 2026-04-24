@@ -26,7 +26,7 @@ public class ItemController {
     MovimentacoesRepository movimentacoesRepository;
 
     @PostMapping("/cadastro")
-    public ItemDto cadastro(@RequestBody ItemRequestDto cadastro){
+    public ItemDto cadastro(@Valid @RequestBody ItemRequestDto cadastro){
         
         return itemService.cadastrarItem(cadastro);
     }
