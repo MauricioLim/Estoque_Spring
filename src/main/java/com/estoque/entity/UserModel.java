@@ -10,8 +10,6 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
 @Table(name = "users")
 public class UserModel implements UserDetails {
     @Id
@@ -23,6 +21,34 @@ public class UserModel implements UserDetails {
     private String email;
 
     private String password;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -37,6 +63,11 @@ public class UserModel implements UserDetails {
     @Override
     public boolean isAccountNonExpired() {
         return true;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
     }
 
     @Override

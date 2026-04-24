@@ -35,10 +35,12 @@ public class TokenConfig {
 
             DecodedJWT decote = JWT.require(algorithm).build().verify(token);
 
-            return Optional.of(JWTUserData.builder()
-                    .userId(decote.getClaim("userId").asLong())
-                    .email(decote.getSubject())
-                    .build());
+            return Optional.of(
+                    new JWTUserData(
+                            decote.getClaim("userId").asLong(),
+                            decote.getSubject()
+                    )
+            );
         } catch (JWTVerificationException ex){
             return Optional.empty();
         }

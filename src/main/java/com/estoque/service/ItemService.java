@@ -84,7 +84,7 @@ public class ItemService {
         }
 
         if (item.getImagem() != null){
-            itemAlterado.setImagem(item.getImagem());
+            itemAlterado.setImagem(cloudinaryService.upload(item.getImagem()));
         }
 
         itemRepository.save(itemAlterado);
@@ -100,7 +100,7 @@ public class ItemService {
         }
 
         return new ItemDto(
-                itemAlterado.getId(), itemAlterado.getNome(), itemAlterado.getQuantidade(), itemAlterado.getValor(), item.getImagem()
+                itemAlterado.getId(), itemAlterado.getNome(), itemAlterado.getQuantidade(), itemAlterado.getValor(), itemAlterado.getImagem()
         );
     }
 
