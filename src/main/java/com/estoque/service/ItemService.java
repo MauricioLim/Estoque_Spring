@@ -58,6 +58,10 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
+    public List<ItemModel> buscaId(Long id){
+        return itemRepository.findByItemId(id);
+    }
+
     @Transactional
     public void deletar(Long id){
         ItemModel item = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("item não encontrado"));

@@ -50,6 +50,12 @@ public class ItemController {
         return itemService.alterar(id, item);
     }
 
+    @GetMapping("/buscaid")
+    public List<ItemModel> buscaId(Long id){
+        return itemService.buscaId(id);
+    }
+
+
 
 
 }
