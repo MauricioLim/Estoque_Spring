@@ -35,7 +35,7 @@ public class SecurityConfig {
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         var config = new org.springframework.web.cors.CorsConfiguration();
 
-        config.setAllowedOrigins(List.of("http://localhost:5174", "https://estoque-front-seven.vercel.app"));
+        config.setAllowedOriginPatterns(List.of("http://localhost:5174", "https://*.vercel.app", "https://estoque-front-seven.vercel.app"));
         config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(java.util.List.of("*"));
         config.setAllowCredentials(true);
