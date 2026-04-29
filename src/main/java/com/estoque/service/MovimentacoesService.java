@@ -56,7 +56,7 @@ public class MovimentacoesService {
     }
 
     public List<MovimentacaoModel> listarPorItem(Long itemId) {
-        return movimentacoesRepository.findByItemId(itemId);
+        return movimentacoesRepository.findByItem_Id(itemId);
     }
 
     public List<MovimentacaoModel> listarTodos() {

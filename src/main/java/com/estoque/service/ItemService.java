@@ -59,7 +59,7 @@ public class ItemService {
     }
 
     public List<ItemModel> buscaId(Long id){
-        return itemRepository.findByItemId(id);
+        return itemRepository.findById(id).map(java.util.List::of).orElse(java.util.Collections.emptyList());
     }
 
     @Transactional
